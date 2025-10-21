@@ -1,25 +1,34 @@
 package org.ccasro.level1;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 
-public class Exercise2 {
+public class Exercise3 {
     public static void main(String[] args) {
-        if(args.length != 1) {
-            System.out.println("Usage: java Exercise2 <directory_path>");
+        if(args.length != 2) {
+            System.out.println("Usage: java Exercise3 <directory_path> <output_file>");
             System.exit(-1);
         }
 
         String directoryPath = args[0];
+        String outputFilePath = args[1];
         File directory = new File(directoryPath);
         if (!directory.exists() || !directory.isDirectory()) {
             System.out.println("The given path is not a valid directory");
             return;
         }
-        
-        listDirectory(directory, 0);
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputFilePath))) {
+            listDirectory(directory, 0,writer);
+            System.out.println("Directory tree saved to " + outputFilePath);
+        } catch (IOException e){
+            System.err.println("Error writing to file: "  + e.getMessage());
+        }
 
         File[] files = directory.listFiles();
         if (files != null){
@@ -30,7 +39,7 @@ public class Exercise2 {
         }
     }
 
-    private static void listDirectory(File directory, int level) {
+    private static void listDirectory(File directory, int level, BufferedWriter writer) throws IOException {
         File[] files = directory.listFiles();
         if (files == null) return;
 
@@ -42,10 +51,11 @@ public class Exercise2 {
         for (File file: files){
             String type = file.isDirectory() ? "(D)" : "(F)";
             String lastModified = sdf.format(new Date(file.lastModified()));
-            System.out.println(indent + type + " " + file.getName() + " - " + lastModified);
+            writer.write(indent + type + " " + file.getName() + " - " + lastModified);
+            writer.newLine();
 
             if (file.isDirectory()) {
-                listDirectory(file,level+1);
+                listDirectory(file,level+1,writer);
             }
         }
     }
