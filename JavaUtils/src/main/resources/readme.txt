@@ -32,5 +32,10 @@ javac -d out JavaUtils/src/main/java/org/ccasro/level1/Exercise4.java
 Execute
 java -cp out org.ccasro.level1.Exercise4 output.txt
 
+Exercise 5
 
+Compile
+javac -d out JavaUtils/src/main/java/org/ccasro/level1/Exercise5.java JavaUtils/src/main/java/org/ccasro/level1/Item.java
 
+Execute
+java -cp out org.ccasro.level1.Exercise5 item.ser
