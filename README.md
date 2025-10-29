@@ -1,4 +1,4 @@
-# 1.05-Java-Utils-level1-2
+# 1.05-Java-Utils-level1-2-3
 
 ## 📄 Description
 
@@ -16,10 +16,14 @@
 - **Level 2**
   - Exercise 1
     Reads directory and output file paths from a .properties file to configure Exercise 3.
+- **Level 3**
+  - Exercise 1
+    This utility encrypts and decrypts files generated in previous exercises.
+    The AES algorithm is used in ECB mode with PKCS5Padding, implemented using javax.crypto.
 
 ## 💻 Technologies used
 
-- Java 23
+- Java 22
 - IntelliJ IDEA
 - Maven 3.9+ (IntelliJ IDEA bundled Maven)
 
@@ -34,7 +38,7 @@
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/ccasro/1.05-Java-Utils-level1-2.git
+git clone https://github.com/ccasro/1.05-Java-Utils-level1-2-3.git
 ```
 
 2. Open the project in your IDE (e.g., IntelliJ IDEA)
