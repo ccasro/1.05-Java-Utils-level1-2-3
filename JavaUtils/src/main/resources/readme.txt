@@ -44,9 +44,15 @@ java -cp out org.ccasro.level1.Exercise5 item.ser
 Level2/Exercise 1
 
 Compile
-
 javac -d out JavaUtils/src/main/java/org/ccasro/level2/Exercise1.java
 
 Execute
-
 java -cp out org.ccasro.level2.Exercise1
+
+Level3/Exercise 1
+
+Compile
+javac -d out JavaUtils/src/main/java/org/ccasro/level3/Exercise1.java JavaUtils/src/main/java/org/ccasro/level3/AESFileUtil.java
+
+Execute
+java -cp out org.ccasro.level3.Exercise1
